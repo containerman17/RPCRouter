@@ -8,7 +8,7 @@
         "dev": "concurrently \"npm run build -- --watch\" \"nodemon ./dist/bundle.js | npx pino-pretty\"",
         "docker:build": "docker build -t containerman17/rpcrouter:v1.0.0 .",
         "docker:run": "npm run docker:build && docker compose up -d",
-        "docker:push": "npm run docker:build && docker push containerman17/rpcrouter:v1.0.0",
+        "docker:push": "docker buildx build --push --platform linux/arm64/v8,linux/amd64 --tag containerman17/rpcrouter:v1.0.0 .",
         "preview": "npm run build && node ./dist/bundle.js"
     },
     "keywords": [],

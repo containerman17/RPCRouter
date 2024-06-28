@@ -1,7 +1,7 @@
 # Builder stage
 FROM node:20-bookworm AS builder
-ENV PNPM_HOME="/pnpm" \
-    PATH="$PNPM_HOME:$PATH"
+ENV PNPM_HOME="/pnpm"
+ENV PATH="/pnpm:$PATH"
 RUN corepack enable
 
 WORKDIR /builder/
