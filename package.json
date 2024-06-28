@@ -1,0 +1,43 @@
+{
+    "name": "03-rpc-router",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "esbuild ./src/dedicated/index.ts --bundle --outfile=dist/bundle.js  --platform=node --external:uWebSockets.js",
+        "dev": "concurrently \"npm run build -- --watch\" \"nodemon ./dist/bundle.js | npx pino-pretty\"",
+        "docker:build": "docker build -t containerman17/rpcrouter:v1.0.0 .",
+        "docker:run": "npm run docker:build && docker compose up -d",
+        "docker:push": "npm run docker:build && docker push containerman17/rpcrouter:v1.0.0",
+        "preview": "npm run build && node ./dist/bundle.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/express": "^4.17.21",
+        "@types/node": "^20.11.0",
+        "@types/ws": "^8.5.10",
+        "bottleneck": "^2.19.5",
+        "bufferutil": "^4.0.8",
+        "concurrently": "^8.2.2",
+        "dotenv": "^16.3.1",
+        "esbuild": "^0.19.11",
+        "express": "^4.18.2",
+        "http-proxy": "^1.18.1",
+        "node-fetch": "^3.3.2",
+        "pino": "^8.19.0",
+        "pino-pretty": "^10.3.1",
+        "prom-client": "^15.1.0",
+        "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.41.0",
+        "web3": "^4.5.0",
+        "ws": "^8.16.0",
+        "zod": "^3.22.4",
+        "zod-form-data": "^2.0.2"
+    },
+    "devDependencies": {
+        "undici": "^6.6.2",
+        "vitest": "^1.2.2",
+        "zx": "^7.2.3"
+    }
+}

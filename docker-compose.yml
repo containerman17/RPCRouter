@@ -1,0 +1,18 @@
+# save this file as docker-compose.yml, cd to the directory and run `docker compose pull && docker-compose up -d` to start the router
+services:
+  rpcrouter:
+    container_name: rpcrouter
+    image: "containerman17/rpcrouter:v1.0.0" # make sure to run docker-compose pull to get the latest version
+    restart: always
+    ports:
+      - "3024:3024" # or "127.0.0.1:3024:3024" if you want to bind to localhost only
+    environment:
+      - "RPCROUTER_CROSS_CHECKS=0" # 0 - disable, 1 - double check (1 extra), 2 - triple check (2 extra)
+      # the format is "RPCROUTER_URL_<network>_<index>=<url>"
+      - "RPCROUTER_URL_fuji_1=https://ava-testnet.public.blastapi.io/ext/bc/C/rpc"
+      - "RPCROUTER_URL_fuji_2=https://rpc.ankr.com/avalanche_fuji"
+      - "RPCROUTER_URL_fuji_3=https://avalanche-fuji.blockpi.network/v1/rpc/public"
+      # another network
+      - "RPCROUTER_URL_fantom_1=https://rpc.ankr.com/fantom"
+      - "RPCROUTER_URL_fantom_2=https://rpc.fantom.network"
+      - "RPCROUTER_URL_fantom_3=https://fantom.blockpi.network/v1/rpc/public"

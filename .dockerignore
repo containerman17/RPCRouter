@@ -1,0 +1,7 @@
+node_modules
+fly.*
+dist
+.env
+*.tar
+*.tgz
+*.gz
