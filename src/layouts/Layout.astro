@@ -1,0 +1,46 @@
+---
+import { twMerge } from "tailwind-merge";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+    title: string;
+    htmlClass?: string;
+    bodyClass?: string;
+}
+
+const { title, htmlClass, bodyClass } = Astro.props;
+
+let canonical = "https://rpcrouter.com" + String(Astro.url.pathname);
+if (canonical.endsWith("/")) {
+    canonical = canonical.slice(0, -1);
+}
+---
+
+<!doctype html>
+<html lang="en" class={twMerge(htmlClass)} transition:animate="none">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- <meta name="description" content="Astro description" /> -->
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <!-- <meta name="generator" content={Astro.generator} /> -->
+        <link rel="canonical" href={canonical} />
+        <title>{title}</title>
+        <!-- <ViewTransitions fallback="animate" /> -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WYJ262KJMR"></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-WYJ262KJMR");
+        </script>
+        <link rel="sitemap" href="/sitemap-index.xml" />
+    </head>
+    <body class={twMerge(bodyClass, "min-h-screen")}>
+        <slot />
+    </body>
+</html>

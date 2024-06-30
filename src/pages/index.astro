@@ -1,0 +1,41 @@
+---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+import Hero from "./_components/Hero.astro";
+import Features3 from "./_components/Features3";
+import Footer from "../components/Footer";
+import Integration from "./_components/Integration.astro";
+import Compatibility from "./_components/Compatibility.astro";
+import Docs from "./_components/Docs.md";
+---
+
+<Layout title="RPCRouter - RPC reliability solition for blockchain">
+    <Hero />
+    <Features3 />
+    <Compatibility />
+    <Integration />
+    <div class="mx-auto pt-16 pb-16 border-t">
+        <div class="mx-auto prose" id="docs">
+            <Docs />
+        </div>
+    </div>
+
+    <Footer client:load />
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const target = e.target as Element; // Assert e.target as Element
+                const href = target.getAttribute("href");
+                if (href) {
+                    // Check if href is not null
+                    document.querySelector(href)?.scrollIntoView({
+                        behavior: "smooth",
+                    });
+                }
+            });
+        });
+    </script>
+</Layout>

@@ -1,0 +1,61 @@
+---
+import HeaderMenu from "../../components/HeaderMenu.tsx";
+import ProblemFlipper from "./ProblemFlipper.tsx";
+
+let headerLinks = [
+    { name: "Features", href: "/#features" },
+    { name: "Compatibility", href: "/#compatibility" },
+    { name: "Docs", href: "/#docs" },
+    { name: "Github", href: "https://github.com/containerman17/RPCRouter" },
+];
+---
+
+<div class="relative overflow-hidden bg-gray-50 border-b">
+    <div class="hidden sm:absolute sm:inset-y-0 sm:block sm:h-full sm:w-full" aria-hidden="true">
+        <div class="relative mx-auto h-full max-w-7xl">
+            <svg class="absolute right-full translate-x-1/4 translate-y-1/4 transform lg:translate-x-1/2" width={404} height={784} fill="none" viewBox="0 0 404 784">
+                <defs>
+                    <pattern id="4522f7d5-8e8c-43ee-89bd-ad34cbfb07fa" x={0} y={0} width={20} height={20} patternUnits="userSpaceOnUse">
+                        <rect x={0} y={0} width={4} height={4} class="text-gray-200" fill="currentColor"></rect>
+                    </pattern>
+                </defs>
+                <rect width={404} height={784} fill="url(#4522f7d5-8e8c-43ee-89bd-ad34cbfb07fa)"></rect>
+            </svg>
+            <svg class="absolute left-full -translate-x-1/4 -translate-y-3/4 transform md:-translate-y-1/2 lg:-translate-x-1/2" width={404} height={784} fill="none" viewBox="0 0 404 784">
+                <defs>
+                    <pattern id="5d0dd344-b041-4d26-bec4-8d33ea57ec9b" x={0} y={0} width={20} height={20} patternUnits="userSpaceOnUse">
+                        <rect x={0} y={0} width={4} height={4} class="text-gray-200" fill="currentColor"></rect>
+                    </pattern>
+                </defs>
+                <rect width={404} height={784} fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)"></rect>
+            </svg>
+        </div>
+    </div>
+
+    <div class="relative pb-16 pt-6 sm:pb-24">
+        <HeaderMenu links={headerLinks} client:visible />
+
+        <main class="mx-auto mt-16 max-w-7xl px-4 sm:mt-24">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold tracking-tight text-gray-900 md:text-6xl">
+                    <span class="block xl:inline">Blockchain RPC</span>{" "}
+                    <span class="block text-primary-600 xl:inline"><ProblemFlipper client:load /></span>
+                    again?
+                </h1>
+                <p class="mx-auto mt-3 max-w-md text-base text-gray-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">
+                    Tired of inconsistent blockchain RPC availability? RPCRouter seamlessly consolidates multiple RPC endpoints into a singular, high-speed, and dependable super-endpoint.
+                </p>
+                <div class="mx-auto mt-5 max-w-md sm:flex sm:justify-center md:mt-8">
+                    <div class="rounded-md shadow">
+                        <a
+                            href="/#docs"
+                            class="flex w-full items-center justify-center rounded-md border border-transparent bg-primary-600 px-8 py-3 text-base font-medium text-white hover:bg-primary-700 md:px-10 md:py-2 md:text-lg"
+                        >
+                            Get started
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
