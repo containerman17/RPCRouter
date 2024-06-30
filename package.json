@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
-        "build": "astro check && astro build && rm -rf docs && cp -r ./dist/ ./docs/",
+        "build": "astro check && astro build && rm -rf docs && cp -r ./dist/ ./docs/ && touch ./docs/.nojekyll",
         "preview": "astro preview",
         "astro": "astro"
     },
